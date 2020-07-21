@@ -32,3 +32,27 @@ build:
         manual:
           - src: '**/.js'
             dest: .
+    - image: shchigrintsov/orders
+      context: orders
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/.js'
+            dest: .
+    - image: shchigrintsov/expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/.js'
+            dest: .
+    - image: shchigrintsov/payments
+      context: payments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/.js'
+            dest: .

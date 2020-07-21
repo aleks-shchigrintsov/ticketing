@@ -1,20 +1,19 @@
-import express, { Request, Response } from 'express';
-import { NotFoundError } from '@oscompany/common';
-import { Ticket } from '../models/ticket';
+import express, { Request, Response } from 'express'
+import { NotFoundError } from '@oscompany/common'
+import { Ticket } from '../models/ticket'
 
-const router = express.Router();
+const router = express.Router()
 
-router.get(
-  '/api/tickets/',
-  async (req: Request, res: Response) => {
-    const tickets = await Ticket.find({});
+router.get('/api/tickets/', async (req: Request, res: Response) => {
+  const tickets = await Ticket.find({
+    orderId: undefined,
+  })
 
-    if (!tickets) {
-      throw new NotFoundError();
-    }
-
-    res.status(200).send(tickets)
+  if (!tickets) {
+    throw new NotFoundError()
   }
-);
 
-export { router as indexTicketRouter };
+  res.status(200).send(tickets)
+})
+
+export { router as indexTicketRouter }
